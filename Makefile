@@ -2,46 +2,53 @@
 
 
 #*---(current variables)--------------*#
-BASE    = init
-DAEMON  = initd
-DIR     = /home/system/p_gvskav/initd.heatherly_init_daemon
+BASE    = eos
 
 
 #*---(standard variables)-------------*#
-COMP    = gcc -c -std=gnu89 -g -pg -Wall -Wextra
+COMP    = gcc -c -std=gnu89 -g -g -Wall -Wextra
+#COMP    = tcc -c -g -Wall
 INC     = 
+#LINK    = tcc 
 LINK    = gcc 
-LIBS    = -lyLOG
+LIBS    = -lyLOG -lyDLST
 LIBS_S  = 
 COPY    = cp -f  
 CLEAN   = rm -f
 ECHO    = @echo
 
 
-FILES   = init.h initd.c eos.c kharon.c nyx.c initd_main.c Makefile initd.conf _vi.conf
+#tcc                : init.h eos.c kharon.c nyx.c
+#	tcc -o eos        eos.c       ${LIBS}
+#	tcc -o kharon     kharon.c    ${LIBS}
+#	tcc -o nyx        nyx.c       ${LIBS}
+
 
 #*---(MAIN)---------------------------*#
-all                : ${DAEMON}  eos
+all                : eos kharon nyx
 
 
 #*---(executables)--------------------*#
-${DAEMON}          : ${DAEMON}_main.o ${DAEMON}.o
-	${LINK}  -o ${DAEMON}       ${DAEMON}_main.o ${DAEMON}.o ${LIBS}
-
 eos                : eos.o
-	${LINK}  -o eos             eos.o ${LIBS}
+	${LINK}  -o eos             eos.o     ${LIBS}
+
+kharon             : kharon.o
+	${LINK}  -o kharon          kharon.o  ${LIBS}
+
+nyx                : nyx.o
+	${LINK}  -o nyx             nyx.o     ${LIBS}
 
 
 
 #*---(objects)------------------------*#
-eos.o              : ${BASE}.h eos.c
-	${COMP}  eos.c ${INC}
+eos.o              : init.h eos.c
+	${COMP}    eos.c      ${INC}
 
-${DAEMON}.o        : ${BASE}.h ${DAEMON}.c
-	${COMP}  ${DAEMON}.c ${INC}
+kharon.o           : init.h kharon.c
+	${COMP}    kharon.c   ${INC}
 
-${DAEMON}_main.o   : ${BASE}.h ${DAEMON}_main.c
-	${COMP}  ${DAEMON}_main.c
+nyx.o              : init.h nyx.c
+	${COMP}    nyx.c      ${INC}
 
 
 #*---(housecleaning)------------------*#
@@ -50,20 +57,26 @@ clean              :
 	${CLEAN} *.o
 	${CLEAN} *~
 	${CLEAN} temp*
+	${CLEAN} eos kharon nyx
 
 bigclean           :
 	${CLEAN} .*.swp
 
-install            : ${DAEMON}
-	${ECHO}  installing in b_nvdo
-	${COPY}  ${DAEMON}  /sbin/
-	chmod    0700       /sbin/${DAEMON}
-	chown    root:root  /sbin/${DAEMON}
-	sha1sum  ${DAEMON}
+install            : 
+	${ECHO}  installing...
 	${COPY}  eos        /sbin/
 	chmod    0700       /sbin/eos
 	chown    root:root  /sbin/eos
 	sha1sum  eos
+	${COPY}  kharon     /sbin/
+	chmod    0700       /sbin/kharon
+	chown    root:root  /sbin/kharon
+	sha1sum  kharon
+	${COPY}  nyx        /sbin/
+	chmod    0700       /sbin/nyx
+	chown    root:root  /sbin/nyx
+	sha1sum  nyx
+	call_graph eos.c
 
 backup             : 
 	export TEST="grep VER_TXT init.h"
