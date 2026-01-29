@@ -1,0 +1,80 @@
+
+
+
+#23456789-12  123456789-123456789-123456789-12345  123456789-123456789-123456  123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-  123456789-  123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-  123456789-123456789- 
+#==(verb)===  ===========(description)===========  =====(function)===========  ========================(arguments)=================================================================  ==(test)==  ==========================(results)=================================================================  ========(var)======= 
+SCRP  [0a/·]  (PROG) verify version display                                      0s   version         PROG_version                                                                 ((01.---))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify version string                                              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((01.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call version                         PROG_version                                                                                                                      w_equal     å[gnu gcc    ]   ¬.¬¬ : ¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬  
+
+
+
+
+#23456789-12  123456789-123456789-123456789-12345  123456789-123456789-123456  123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-  123456789-  123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-123456789-  123456789-123456789- 
+#==(verb)===  ===========(description)===========  =====(function)===========  ========================(arguments)=================================================================  ==(test)==  ==========================(results)=================================================================  ========(var)======= 
+SCRP  [0a/·]  (PROG) verify selecting parts of polymnia to run                   0s   args            PROG__args, PROG__args_string                                                ((02.---))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify program setup                                               - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.001))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     setup the program                    PROG__unit_quiet                                                                                                                  z_equal     0                                                                                                    
+
+   COND  (0)  reset reporting flags                                              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call init to reset everything        PROG_string                 'i'     , "argus"                                                                                     z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp ·, wtmp ·, btmp ·, curr ·, last ·    
+
+   COND       verify selecting files                                             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --files"                                                                             z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file y, user ·, grup ·, matx ·, utmp ·, wtmp ·, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting users                                             - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --users"                                                                             z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user y, grup ·, matx ·, utmp ·, wtmp ·, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting groups                                            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --groups"                                                                            z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup y, matx ·, utmp ·, wtmp ·, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting matrix                                            - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --matrix"                                                                            z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx y, utmp ·, wtmp ·, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting utmp                                              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --utmp"                                                                              z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp y, wtmp ·, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting wtmp                                              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --wtmp"                                                                              z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp ·, wtmp y, btmp ·, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting btmp                                              - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --btmp"                                                                              z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp ·, wtmp ·, btmp y, curr ·, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting current                                           - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --current"                                                                           z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp ·, wtmp ·, btmp ·, curr y, last ·    
+
+   DITTO (0)  ---[[ reset reporting flags ]]----------------------------------   - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+   COND       verify selecting lastlog                                           - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((02.002))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     call argument processing             PROG_string                 'a'     , "argus --lastlog"                                                                           z_equal     1                                                                                                    
+     get      ... check reporting flags            PROG__unit                  "reporting"    , 0                                                                                    s_equal     PROG reporting   : file ·, user ·, grup ·, matx ·, utmp ·, wtmp ·, btmp ·, curr ·, last y    
+
+   COND       verify program teardown purges                                     - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -   ((01.015))  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+     exec     wrap-up the program                  PROG__unit_end                                                                                                                    z_equal     0                                                                                                    
+
+
