@@ -355,23 +355,41 @@ argus_groups            (void)
    char        x_unames    [LEN_HUND]  = "";
    char        x_uids      [LEN_HUND]  = "";
    int         c           =    0;
-   char        t           [LEN_LABEL] = "";
-   char        s           [LEN_FULL]  = "";
-   char        r           [LEN_FULL]  = "";
+   char       *x_parser    = "#ù parsing··´··åID  GID··>  LN> name········<  q  a  CNT>  LN> unames············································<  LN> uids····································<æ";
+   char        x_line      [LEN_FULL]  = "";
    /*---(header)-------------------------*/
    DEBUG_PROG   yLOG_enter   (__FUNCTION__);
-   /*---(first)--------------------------*/
+   /*---(setup report)-------------------*/
+   rc = 0;
+   RPTG_GROUPS  rc = yPARSE_export_header ("(stdout)", P_FULLPATH, my.m_cmdline, P_ONELINE, P_VERNUM, P_VERTXT, "linux security group inventory (local machine)", x_parser, my.m_exim, my.m_titles);
+   DEBUG_PROG   yLOG_value   ("header"    , rc);
+   --rce;  if (rc < 0) {
+      DEBUG_PROG   yLOG_exitr   (__FUNCTION__, rce);
+      return rce;
+   }
+   /*---(walk data)----------------------*/
    rc = yENV_group_by_cursor (YDLST_HEAD, x_name, &x_gid, &x_quality, &x_active, &x_nuser, x_unames, x_uids);
    DEBUG_PROG   yLOG_value   ("cursor"    , rc);
    while (rc >= 0) {
-      RPTG_GROUPS  SHOW_exim (RUN_GROUPS, c, my.m_exim, my.m_titles);
-      RPTG_GROUPS  fprintf (my.m_output, "%2d  %5d  %2d %-12.12s  %c  %c  %3d  %2d %-50.50s  %2d %-40.40s  Ï\n", c, x_gid, strlen (x_name), x_name, x_quality, x_active, x_nuser, strlen (x_unames), x_unames, strlen (x_uids), x_uids);
+      sprintf (x_line, "%2d  %5d  %2d %-12.12s  %c  %c  %3d  %2d %-50.50s  %2d %-40.40s  Ï", c, x_gid, strlen (x_name), x_name, x_quality, x_active, x_nuser, strlen (x_unames), x_unames, strlen (x_uids), x_uids);
+      RPTG_GROUPS  yPARSE_export_line (x_line);
+      DEBUG_PROG   yLOG_value   ("line"      , rc);
+      --rce;  if (rc < 0) {
+         DEBUG_PROG   yLOG_exitr   (__FUNCTION__, rce);
+         return rce;
+      }
       ++c;
       rc = yENV_group_by_cursor (YDLST_NEXT, x_name, &x_gid, &x_quality, &x_active, &x_nuser, x_unames, x_uids);
       DEBUG_PROG   yLOG_value   ("cursor"    , rc);
    }
    /*---(report suffix)------------------*/
-   RPTG_GROUPS  SHOW_exim (RUN_GROUPS, -1, my.m_exim, my.m_titles);
+   rc = 0;
+   RPTG_GROUPS  rc = yPARSE_export_footer ();
+   DEBUG_PROG   yLOG_value   ("footer"    , rc);
+   --rce;  if (rc < 0) {
+      DEBUG_PROG   yLOG_exitr   (__FUNCTION__, rce);
+      return rce;
+   }
    /*---(complete)-----------------------*/
    DEBUG_PROG   yLOG_exit    (__FUNCTION__);
    return 0;

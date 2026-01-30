@@ -8,7 +8,7 @@ NAME_BASE  = argus
 # additional standard and outside libraries
 LIB_STD    = 
 # all heatherly libraries used, debug versions whenever available
-LIB_MINE   = -lySTR_debug -lyEXEC_debug -lySCHED_debug -lyENV_debug
+LIB_MINE   = -lySTR_debug -lyENV_debug -lyPARSE_debug
 # directory for production code, no trailing slash
 INST_DIR   = /usr/sbin
 

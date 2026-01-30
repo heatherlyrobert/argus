@@ -14,8 +14,8 @@
 
 #define     P_ONELINE   P_NAMESAKE " " P_SUBJECT
 
-#define     P_BASENAME  ""
-#define     P_FULLPATH  ""
+#define     P_BASENAME  "argus"
+#define     P_FULLPATH  "/usr/sbin/argus"
 #define     P_SUFFIX    ""
 #define     P_CONTENT   ""
 
@@ -29,8 +29,8 @@
 
 #define     P_VERMAJOR  "1.--"
 #define     P_VERMINOR  "1.1-, on-going improvements"
-#define     P_VERNUM    "1.1b"
-#define     P_VERTXT    "new standard exim formatting unit tested and used in group report"
+#define     P_VERNUM    "1.1c"
+#define     P_VERTXT    "migrated exporting/exim into yPARSE and unit tested"
 
 #define     P_PRIORITY  "direct, simple, brief, vigorous, and lucid (h.w. fowler)"
 #define     P_PRINCIPAL "[grow a set] and build your wings on the way down (r. bradbury)"
@@ -115,7 +115,8 @@
 #include    <yLOG.h>
 #include    <yURG.h>
 #include    <yENV.h>
-#include    <ySTR_solo.h>
+#include    <ySTR.h>
+#include    <yPARSE.h>
 #include    <yDLST_solo.h>
 #include    <yCOLOR_solo.h>
 
@@ -208,19 +209,6 @@ char        PROG_shutdown           (void);
 /*········´ ´················DONE·´ ´·········································*/
 
 
-
-/*===[[ argus_show.c ]]=======================================================*/
-/*········´ ´··············format·´ ´·········································*/
-char        SHOW__parser_clear      (char *r_width, char *r_gap, char *r_dots, char *r_suffix, char r_field [LEN_RECD], char *r_delm, char *r_algn, char *r_form, char *r_decs, char *r_unit, char r_check [LEN_HUND]);
-char        SHOW__parser_title      (char a_ch, char a_curr [LEN_TERSE], char *b_width, char *b_gap, char *b_dots, char *b_suffix, char b_field [LEN_RECD], char r_check [LEN_HUND]);
-char        SHOW__parser_suffix     (char a_ch, char a_width, char *b_suffix, char *r_delm, char *r_algn, char *r_form, char *r_decs, char *r_unit, char r_check [LEN_HUND]);
-char        SHOW__parser_field      (char *b_count, char a_ch, char a_width, char a_gap, char a_field [LEN_FULL], char a_delm, char a_algn, char a_form, char a_decs, char a_unit, char b_header [LEN_RECD], char b_break [LEN_RECD], char b_control [LEN_RECD]);
-char        SHOW_parser_interpret   (char *a_parser, char *r_header, char *r_break, int a_max, char r_control [LEN_RECD], char r_feedback [LEN_RECD]);
-
-
-char        SHOW__parsing           (char *a_parser, char *r_header, char *r_break, int a_max, char r_control [LEN_RECD], char r_feedback [LEN_RECD]);
-char        SHOW_exim               (char c_content, int c, char c_exim, char c_titles);
-/*········´ ´················DONE·´ ´·········································*/
 
 
 /*============================[[ end-of-code ]]===============================*/
