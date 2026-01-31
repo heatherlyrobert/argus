@@ -75,8 +75,8 @@
 /*········· ··········· ´·····························´········································*/
 #define     P_VERMAJOR  "1.--"
 #define     P_VERMINOR  "1.1-, on-going improvements"
-#define     P_VERNUM    "1.1c"
-#define     P_VERTXT    "migrated exporting/exim into yPARSE and unit tested"
+#define     P_VERNUM    "1.1d"
+#define     P_VERTXT    "updated headers and added gpl messages"
 /*········· ··········· ´·····························´········································*/
 #define     P_PRIORITY  "direct, simple, brief, vigorous, and lucid (h.w. fowler)"
 #define     P_PRINCIPAL "[grow a set] and build your wings on the way down (r. bradbury)"
