@@ -1,43 +1,91 @@
 /*============================[[    beg-code    ]]============================*/
-/*===[[ ONE_LINERS ]]=========================================================*/
-/*-------   --12345678  "123456789-123456789-123456789-123456789-123456789-123456789-"  */
 
+
+
+/*===[[ GNU GENERAL PUBLIC LICENSE (GPL) ]]===================================*/
+/*´´·········1·········2·········3·········4·········5·········6·········7·········8  */
+
+#define  P_COPYRIGHT   \
+   "copyright (c) 2012 robert.s.heatherly at balsashrike at gmail dot com"
+
+#define  P_LICENSE     \
+   "the only place you could have gotten this code is my github, my website,¦"   \
+   "or illegal sharing. given that, you should be aware that this is GPL licensed."
+
+#define  P_COPYLEFT    \
+   "the GPL COPYLEFT REQUIREMENT means any modifications or derivative works¦"   \
+   "must be released under the same GPL license, i.e, must be free and open."
+
+#define  P_INCLUDE     \
+   "the GPL DOCUMENTATION REQUIREMENT means that you must include the original¦" \
+   "copyright notice and the full licence text with any resulting anything."
+
+#define  P_AS_IS       \
+   "the GPL NO WARRANTY CLAUSE means the software is provided without any¦"      \
+   "warranty and the author cannot be held liable for damages."
+
+#define  P_THEFT    \
+   "if you knowingly violate the spirit of these ideas, i suspect you might "    \
+   "find any number of freedom-minded hackers may take it quite personally ;)"
+
+/*´´·········1·········2·········3·········4·········5·········6·········7·········8  */
+/*===[[ GNU GENERAL PUBLIC LICENSE (GPL) ]]===================================*/
+
+
+
+/*===[[ ONE_LINERS ]]=========================================================*/
+/*                      ´·········1·········2·········3·········4·········5·········6·········7*/
+/*--------- 12345678901 ´123456789-123456789-123456789-123456789-123456789-123456789-123456789-*/
+/*········· ··········· ´·····························´········································*/
 #define     P_FOCUS     "SA (system administration)"
 #define     P_NICHE     "se (security)"
 #define     P_SUBJECT   "system access guardian"
-#define     P_PURPOSE   "system access guardian"
-
+#define     P_PURPOSE   "provide review of system authorization and accesses"
+/*········· ··········· ´·····························´········································*/
 #define     P_NAMESAKE  "argus-panoptes (all-seeing)"
-#define     P_HERITAGE  ""
-#define     P_IMAGERY   ""
-#define     P_REASON    ""
-
+#define     P_PRONOUNCE "ahr·guhs - pahn·ohp·tees"
+#define     P_HERITAGE  "ever-vigilent, unsleeping, all-seeing giant with one-hundred eyes"
+#define     P_BRIEFLY   "all-seeing guardian"
+#define     P_IMAGERY   "giant with one-hundred eyes"
+#define     P_REASON    "for security, its about watching the details"
+/*········· ··········· ´·····························´········································*/
 #define     P_ONELINE   P_NAMESAKE " " P_SUBJECT
-
+/*········· ··········· ´·····························´········································*/
+#define     P_HOMEDIR   "/home/system/argus.all_watching_security"
 #define     P_BASENAME  "argus"
 #define     P_FULLPATH  "/usr/sbin/argus"
-#define     P_SUFFIX    ""
-#define     P_CONTENT   ""
-
+#define     P_SUFFIX    "´"
+#define     P_CONTENT   "´"
+/*········· ··········· ´·····························´········································*/
 #define     P_SYSTEM    "gnu/linux   (powerful, ubiquitous, technical, and hackable)"
 #define     P_LANGUAGE  "ansi-c      (wicked, limitless, universal, and everlasting)"
+#define     P_COMPILER  "gcc 5.3.0"
 #define     P_CODESIZE  "small       (appoximately 1,000 slocl)"
-#define     P_DEPENDS   ""
-
+/*········· ··········· ´·····························´········································*/
+#define     P_DEPSTDC   ""
+#define     P_DEPPOSIX  ""
+#define     P_DEPCORE   "yLOG,yURG,ySTR,yENV"
+#define     P_DEPVIKEY  ""
+#define     P_DEPGRAPH  ""
+#define     P_DEPOTHER  "ySORT,yPARSE"
+#define     P_DEPSOLO   "yDLST_solo,yCOLOR_solo"
+/*········· ··········· ´·····························´········································*/
 #define     P_AUTHOR    "heatherlyrobert"
 #define     P_CREATED   "2012-07"
-
+/*········· ··········· ´·····························´········································*/
 #define     P_VERMAJOR  "1.--"
 #define     P_VERMINOR  "1.1-, on-going improvements"
 #define     P_VERNUM    "1.1c"
 #define     P_VERTXT    "migrated exporting/exim into yPARSE and unit tested"
-
+/*········· ··········· ´·····························´········································*/
 #define     P_PRIORITY  "direct, simple, brief, vigorous, and lucid (h.w. fowler)"
 #define     P_PRINCIPAL "[grow a set] and build your wings on the way down (r. bradbury)"
 #define     P_REMINDER  "there are many better options, but i *own* every byte of this one"
+/*········· ··········· ´·····························´········································*/
+/*--------- 12345678901 ´123456789-123456789-123456789-123456789-123456789-123456789-123456789-*/
+/*                      ´·········1·········2·········3·········4·········5·········6·········7*/
+/*===[[ SRENIL_ENO ]]=========================================================*/
 
-/*-------   --12345678  "123456789-123456789-123456789-123456789-123456789-123456789-"  */
-/*===[[ END ONE_LINERS ]]=====================================================*/
 
 
 /*===[[ HEADER ]]=============================================================#
